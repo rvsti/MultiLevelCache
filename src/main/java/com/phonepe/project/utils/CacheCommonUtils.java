@@ -6,10 +6,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Iterator;
 
-@Component
 public class CacheCommonUtils {
 
-    public void printCache(MultiLevelCache multiLevelCache) {
+    public static void printCache(MultiLevelCache multiLevelCache) {
         for(Integer i = 0; i < multiLevelCache.levels; i++) {
             System.out.println("Level: " + (i + 1));
             LevelCache levelCache = multiLevelCache.levelCaches.get(i);
