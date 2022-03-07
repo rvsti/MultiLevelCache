@@ -5,12 +5,12 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 public class LevelCache {
-    Integer levelNumber;
-    Integer readTime;
-    Integer writeTime;
-    Integer capacity;
-    HashMap<String, String> node;
-    Deque<String> deque;
+    public Integer levelNumber;
+    public Integer readTime;
+    public Integer writeTime;
+    public Integer capacity;
+    public HashMap<String, String> node;
+    public Deque<String> deque;
 
     public LevelCache(Integer levelNumber, Integer readTime, Integer writeTime, Integer capacity) {
         this.levelNumber = levelNumber;

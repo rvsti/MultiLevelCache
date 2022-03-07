@@ -1,10 +1,15 @@
-package com.phonepe.project.models;
+package com.phonepe.project.utils;
+
+import com.phonepe.project.models.MultiLevelCache;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class CacheWriteCommand implements CacheCommand{
 
     MultiLevelCache multiLevelCache;
     String key;
     String value;
+    @Autowired
+    CacheCommonUtils cacheCommonUtils;
 
     public CacheWriteCommand(MultiLevelCache multiLevelCache, String key, String value) {
         this.multiLevelCache = multiLevelCache;
@@ -31,6 +36,6 @@ public class CacheWriteCommand implements CacheCommand{
             evictionLevel++;
         }
         System.out.println("Write Time: " + writeTimeTaken);
-        CacheCommonUtils.prinntCache(multiLevelCache);
+        cacheCommonUtils.printCache(multiLevelCache);
     }
 }

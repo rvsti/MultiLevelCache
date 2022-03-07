@@ -1,6 +1,10 @@
 package com.phonepe.project;
 
+import com.phonepe.project.configs.CacheConfigProperties;
 import com.phonepe.project.models.*;
+import com.phonepe.project.utils.CacheCommonUtils;
+import com.phonepe.project.utils.CacheReadCommand;
+import com.phonepe.project.utils.CacheWriteCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +46,7 @@ public class CacheRunner implements CommandLineRunner {
                 cacheWriteCommand.execute();
             }
             else if(inputCommand.startsWith("DISPLAY")) {
-                CacheCommonUtils.prinntCache(multiLevelCache);
+                CacheCommonUtils.printCache(multiLevelCache);
             }
         }
 

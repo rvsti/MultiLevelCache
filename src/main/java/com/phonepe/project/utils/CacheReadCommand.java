@@ -1,14 +1,20 @@
-package com.phonepe.project.models;
+package com.phonepe.project.utils;
+
+import com.phonepe.project.models.MultiLevelCache;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class CacheReadCommand implements CacheCommand {
 
     MultiLevelCache multiLevelCache;
     String key;
 
+    @Autowired CacheCommonUtils cacheCommonUtils;
+
     public CacheReadCommand(MultiLevelCache multiLevelCache, String key) {
         this.multiLevelCache = multiLevelCache;
         this.key = key;
     }
+
     public void execute() {
         Boolean found = false;
         Integer targetLevel = -1;
@@ -25,7 +31,7 @@ public class CacheReadCommand implements CacheCommand {
                 keyValue = value;
 
                 Integer evictionLevel = 0;
-                while(found==true && evictionLevel <= i) {
+                while(found && evictionLevel <= i) {
                     multiLevelCache.levelCaches.get(evictionLevel).deque.addFirst(key);
                     multiLevelCache.levelCaches.get(evictionLevel).node.put(key, value);
                     readTimeTaken += multiLevelCache.levelCaches.get(evictionLevel).writeTime;
@@ -49,7 +55,7 @@ public class CacheReadCommand implements CacheCommand {
             System.out.println("Key found at level: " + targetLevel + " Value: " + keyValue);
             System.out.println("Read Time: " + readTimeTaken);
         }
-        CacheCommonUtils.prinntCache(multiLevelCache);
+        cacheCommonUtils.printCache(multiLevelCache);
     }
 
 }

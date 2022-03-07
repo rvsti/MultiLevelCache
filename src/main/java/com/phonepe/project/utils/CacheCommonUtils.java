@@ -1,10 +1,15 @@
-package com.phonepe.project.models;
+package com.phonepe.project.utils;
+
+import com.phonepe.project.models.LevelCache;
+import com.phonepe.project.models.MultiLevelCache;
+import org.springframework.stereotype.Component;
 
 import java.util.Iterator;
 
+@Component
 public class CacheCommonUtils {
 
-    public static void prinntCache(MultiLevelCache multiLevelCache) {
+    public void printCache(MultiLevelCache multiLevelCache) {
         for(Integer i = 0; i < multiLevelCache.levels; i++) {
             System.out.println("Level: " + (i + 1));
             LevelCache levelCache = multiLevelCache.levelCaches.get(i);
