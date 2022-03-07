@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "name": "conf",
+      "type": "com.phonepe.project.models.CacheConfigProperties",
+      "sourceType": "com.phonepe.project.models.CacheConfigProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "conf.capacity",
+      "type": "java.util.List<java.lang.Integer>",
+      "sourceType": "com.phonepe.project.models.CacheConfigProperties"
+    },
+    {
+      "name": "conf.levels",
+      "type": "java.lang.Integer",
+      "sourceType": "com.phonepe.project.models.CacheConfigProperties"
+    },
+    {
+      "name": "conf.read-time",
+      "type": "java.util.List<java.lang.Integer>",
+      "sourceType": "com.phonepe.project.models.CacheConfigProperties"
+    },
+    {
+      "name": "conf.write-time",
+      "type": "java.util.List<java.lang.Integer>",
+      "sourceType": "com.phonepe.project.models.CacheConfigProperties"
+    }
+  ],
+  "hints": []
+}
